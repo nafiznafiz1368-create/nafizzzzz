@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio | Premium Dark</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-deep: #0a0a12;
+            --accent-purple: #8e44ad;
+            --light-purple: #bc6ff1;
+            --glass: rgba(255, 255, 255, 0.05);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-deep);
+            color: white;
+            overflow-x: hidden;
+        }
+
+        .bg-gradient {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 50% 50%, #1e1333 0%, #0a0a12 100%);
+            z-index: -1;
+        }
+
+        /* Navbar Responsif */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(10, 10, 18, 0.9);
+            backdrop-filter: blur(15px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li { margin-left: 20px; }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #ccc;
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+
+        /* Hero Section */
+        section {
+            padding: 100px 10%;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+            flex-wrap: wrap; /* Agar turun saat di HP */
+        }
+
+        .hero-text { flex: 1; min-width: 300px; }
+        .hero-text h1 { font-size: 3rem; margin-bottom: 10px; }
+        .hero-text span { color: var(--light-purple); }
+
+        /* Foto Profil Utama */
+        .profile-img-container {
+            width: 300px;
+            height: 300px;
+            margin: 0 auto;
+            transition: 0.5s;
+        }
+
+        .profile-img {
+            width: 100%;
+            height: 100%;
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            background: linear-gradient(45deg, var(--accent-purple), var(--light-purple));
+            border: 5px solid rgba(255,255,255,0.2);
+            object-fit: cover;
+            animation: morph 8s ease-in-out infinite;
+        }
+
+        /* Section About Me dengan Foto */
+        .about-container {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+
+        .about-img {
+            width: 280px;
+            height: 350px;
+            border-radius: 20px;
+            object-fit: cover;
+            filter: grayscale(0.5);
+            transition: 0.5s;
+            border: 2px solid var(--accent-purple);
+        }
+
+        .about-img:hover { filter: grayscale(0); transform: scale(1.02); }
+
+        /* Edukasi */
+        .edu-card {
+            background: var(--glass);
+            padding: 25px;
+            border-radius: 20px;
+            border-left: 5px solid var(--accent-purple);
+            margin-bottom: 20px;
+            transition: 0.3s;
+        }
+
+        .insta-btn {
+            display: inline-block;
+            padding: 15px 35px;
+            background: linear-gradient(45deg, #f09433, #dc2743, #bc1888);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        /* --- MEDIA QUERIES UNTUK HP (RESPONSIF) --- */
+        @media (max-width: 768px) {
+            nav { padding: 15px 5%; justify-content: center; }
+            .logo { display: none; } /* Sembunyikan logo agar menu cukup */
+            .nav-links li { margin: 0 10px; }
+            
+            .hero-text { text-align: center; }
+            .hero-text h1 { font-size: 2.2rem; }
+            
+            .profile-img-container { width: 250px; height: 250px; }
+            
+            .about-container { flex-direction: column; text-align: center; }
+            .about-img { width: 100%; max-width: 300px; height: auto; }
+            
+            section { padding: 80px 5%; }
+            h2 { font-size: 2rem; margin: 0 auto 30px auto; }
+        }
+
+        @keyframes morph {
+            0%, 100% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+            50% { border-radius: 50% 50% 20% 80% / 25% 80% 20% 75%; }
+        }
+
+        h2 { font-size: 2.5rem; margin-bottom: 40px; border-bottom: 2px solid var(--accent-purple); width: fit-content; }
+    </style>
+</head>
+<body>
+
+    <div class="bg-gradient"></div>
+
+    <nav>
+        <div class="logo">PORTFOLIO<b>.</b></div>
+        <ul class="nav-links">
+            <li><a href="#home">Profil</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#edu">Edukasi</a></li>
+            <li><a href="#contact">Kontak</a></li>
+        </ul>
+    </nav>
+
+    <section id="home">
+        <div class="hero-content">
+            <div class="hero-text" data-aos="fade-right">
+                <p>Selamat Datang,</p>
+                <h1>Saya <span>Muhammad nafiz</span></h1>
+                <p>Mahasiswa Informatika & Creative Designer.</p>
+            </div>
+            <div class="profile-img-container" data-aos="zoom-in">
+                <img src="zzzz.jpg" alt="Foto Utama" class="profile-img">
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <h2 data-aos="fade-right">Tentang Saya</h2>
+        <div class="about-container">
+            <img src="zzz.jpg" alt="Foto About Me" class="about-img" data-aos="fade-right">
+            <div class="about-text" data-aos="fade-left">
+                <p style="font-size: 1.1rem; line-height: 1.8; color: #ccc;">
+                    Halo! Saya adalah seorang mahasiswa yang berdedikasi tinggi dalam mengeksplorasi dunia teknologi informasi. 
+                    Selain aktif di teknologi, saya juga gemar mengembangkan proyek web kreatif dan mempelajari desain antarmuka pengguna (UI/UX).
+                    <br><br>
+                    Saya percaya bahwa setiap tantangan adalah peluang untuk tumbuh. Fokus saya saat ini adalah membangun solusi digital yang tidak hanya berfungsi baik, tapi juga memiliki estetika yang memanjakan mata.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="edu">
+        <h2 data-aos="fade-right">Edukasi</h2>
+        <div class="edu-card" data-aos="fade-up" data-aos-delay="100">
+            <h3>"Jangan pernah menyerah dalam belajar, karena pohon besar pun bermula dari biji kecil." - Anonymous</h3>
+            <p></p>
+        </div>
+        <div class="edu-card" data-aos="fade-up" data-aos-delay="200">
+            <h3>"Kesuksesan dalam pendidikan bukanlah tentang seberapa pintar Anda, melainkan seberapa keras Anda bekerja untuk meraihnya." - Unknown</h3>
+            
+        </div>
+    </section>
+
+    <section id="contact" style="text-align: center; align-items: center;">
+        <h2 data-aos="zoom-in">Hubungi Saya</h2>
+        <p style="margin-bottom: 20px;">Mari terhubung di media sosial!</p>
+        <a href="https://www.instagram.com/_muhammadnafiz2?igsh=MTI2ZWcxZjlhOHVkNg==" target="_blank" class="insta-btn" data-aos="flip-up">
+            <i class="fab fa-instagram"></i> Instagram
+        </a>
+    </section>
+
+    <footer style="padding: 30px; text-align: center; font-size: 0.8rem; color: #555;">
+        &copy; 2024 Nama Kamu. Dibuat dengan ✨
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
+
+        // Efek Hover Interaktif sederhana untuk foto profil
+        const profileContainer = document.querySelector('.profile-img-container');
+        profileContainer.addEventListener('mousemove', (e) => {
+            const { offsetWidth: width, offsetHeight: height } = profileContainer;
+            const { offsetX: x, offsetY: y } = e;
+            const xMove = (x / width - 0.5) * 20;
+            const yMove = (y / height - 0.5) * 20;
+            profileContainer.style.transform = `perspective(500px) rotateX(${-yMove}deg) rotateY(${xMove}deg)`;
+        });
+        profileContainer.addEventListener('mouseleave', () => {
+            profileContainer.style.transform = `rotate(0deg)`;
+        });
+    </script>
+</body>
+</html>
